@@ -18,6 +18,8 @@ Preview locally: `.claude/launch.json` → `royal-tree` (python http.server on 8
    against the PDF; `BRANCHES` are added polity labels (not in the chart).
 2. `python3 royal_tree/cite.py <book.pdf>` → adds `note`/`pages` from `notes.json` and `mentions`
    (printed pages where the name matches by spelling, ≤6, genealogy-dense pages first). Run after step 1.
+3. `python3 royal_tree/slides.py <deck_root>` → Slides-artifact files under `<deck_root>/project/` and
+   `graphics/*.svg` (slide graphics + full `royal_tree_poster.svg`). Deck: https://claude.ai/artifact/1JaeEqK5VMbmwUxdci9KyY
 
 ## Book coverage (done 2026-09-25)
 - Prose genealogy: printed pp. 313–337 (Ngala-Dwala ancestors ↔ pharaoh table; Ikale ≈ end of 17th dynasty,
