@@ -405,5 +405,35 @@
       428,
       433
     ]
+  },
+  "Dika@Mpondo": {
+    "note": "The book's Fig. 1 (a nesting chart of Duala lineage segments) shows Dika as head of the Bonadika house, marked as his court during his lifetime, from which later Akwa houses branch.",
+    "pages": [
+      14
+    ]
+  },
+  "Bétotè": {
+    "note": "The book's Fig.1 places 'la maison de Bétotè Akwa' as a branch descending from Dika's house (Bonadika), matching the tree's Bétotè as son of Dika.",
+    "pages": [
+      14
+    ]
+  },
+  "Dika@Bétotè": {
+    "note": "The book's Fig. 1 shows the nuclear family of Dika-Akwa nya Bonambela, the author, branching from the house of Bétotè Akwa.",
+    "pages": [
+      14
+    ]
+  },
+  "Kota": {
+    "note": "The book states Kota was son of Mbou (Mbu) and brother of Ngala II, ancestor of the Bangala of Central Africa, while Ngala II founded the Ngalambou who stayed in Senegal.",
+    "pages": [
+      417
+    ]
+  },
+  "Ngala II@Mbu": {
+    "note": "The book states Ngala II was son of Mbou (Mbu) and brother of Kota, and became ancestor of the Ngalambou who remained in Senegal.",
+    "pages": [
+      417
+    ]
   }
 }
