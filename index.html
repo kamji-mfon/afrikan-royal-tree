@@ -5,110 +5,197 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Afrikan Royal Dynasty Tree</title>
 <style>
-  :root { --bg:#faf7f2; --ink:#2b2118; --muted:#8a7b6b; --line:#c9b8a3; --hit:#c2410c; --panel:#fffdf9; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#1a1612; --ink:#efe6da; --muted:#a3947f; --line:#5a4c3d; --hit:#fb923c; --panel:#241e18; }
+  :root {
+    --bg:#f6efe3; --bg2:#ead9bf; --ink:#2b2118; --muted:#7d6c5a; --line:#b89f80; --hit:#b91c1c;
+    --panel:rgba(255,251,244,.86); --gold:#b8862b; --motif:rgba(120,72,24,.10);
   }
-  html, body { margin:0; height:100%; background:var(--bg); color:var(--ink); font:14px/1.4 system-ui, sans-serif; }
-  header { position:fixed; inset:0 0 auto 0; z-index:1; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center;
-           padding:10px 16px; background:var(--panel); border-bottom:1px solid var(--line); }
-  h1 { margin:0; font-size:16px; letter-spacing:.04em; }
-  input { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--ink); min-width:0; width:180px; }
-  button { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--ink); cursor:pointer; }
-  #legend { display:flex; flex-wrap:wrap; gap:6px 12px; font-size:12px; color:var(--muted); }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#16110d; --bg2:#2a1f15; --ink:#f1e7d8; --muted:#b3a08a; --line:#6b5641; --hit:#f87171;
+            --panel:rgba(30,23,17,.86); --gold:#e0b25a; --motif:rgba(224,178,90,.08); }
+  }
+  html, body { margin:0; height:100%; color:var(--ink); font:14px/1.45 Georgia, "Iowan Old Style", serif; overflow:hidden; }
+  body {
+    /* Sun-disc glow over woven kente-style bands; motif drawn in currentColor-free CSS so both themes work. */
+    background:
+      radial-gradient(ellipse 60% 45% at 50% 0%, color-mix(in srgb, var(--gold) 28%, transparent), transparent 70%),
+      repeating-linear-gradient(90deg, var(--motif) 0 14px, transparent 14px 28px, var(--motif) 28px 30px, transparent 30px 64px),
+      repeating-linear-gradient(0deg, var(--motif) 0 6px, transparent 6px 48px),
+      linear-gradient(160deg, var(--bg), var(--bg2));
+  }
+  body::before { /* adinkra-like diamond lattice, faint */
+    content:""; position:fixed; inset:0; pointer-events:none; opacity:.55;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96'%3E%3Cg fill='none' stroke='%23a0703a' stroke-opacity='.18' stroke-width='1.2'%3E%3Cpath d='M48 8 88 48 48 88 8 48Z'/%3E%3Cpath d='M48 26 70 48 48 70 26 48Z'/%3E%3Ccircle cx='48' cy='48' r='5'/%3E%3Cpath d='M0 0 12 12M96 0 84 12M0 96 12 84M96 96 84 84'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  header { position:fixed; inset:0 0 auto 0; z-index:2; display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center;
+           padding:10px 16px; background:var(--panel); backdrop-filter:blur(6px); border-bottom:2px solid var(--gold); }
+  h1 { margin:0; font-size:17px; letter-spacing:.08em; font-variant:small-caps; }
+  input, button { font:inherit; font-family:system-ui, sans-serif; font-size:13px; padding:6px 10px; border:1px solid var(--line);
+                  border-radius:6px; background:var(--bg); color:var(--ink); }
+  input { width:170px; min-width:0; }
+  button { cursor:pointer; }
+  #legend { display:flex; flex-wrap:wrap; gap:4px 12px; font:12px system-ui, sans-serif; color:var(--muted); }
   #legend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:4px; background:var(--c); vertical-align:-1px; }
-  #info { font-size:12px; color:var(--muted); }
-  svg { display:block; width:100%; height:100%; }
-  .link { fill:none; stroke:var(--line); stroke-width:1.2; }
+  #info { width:100%; font:12px system-ui, sans-serif; color:var(--muted); }
+  svg#chart { position:fixed; inset:0; width:100%; height:100%; }
+  .link { fill:none; stroke:var(--line); stroke-width:1.3; }
   .node circle { stroke:var(--bg); stroke-width:1.5; cursor:pointer; }
-  .node text { fill:var(--ink); font-size:12px; paint-order:stroke; stroke:var(--bg); stroke-width:3px; cursor:pointer; }
+  .node text { fill:var(--ink); font-size:12px; paint-order:stroke; stroke:var(--bg); stroke-width:3px; }
+  .node .name { cursor:pointer; text-decoration:underline; text-decoration-color:transparent; }
+  .node .name:hover { text-decoration-color:currentColor; }
   .node .spouse { fill:var(--muted); font-style:italic; }
-  .node .branch { font-weight:600; font-size:11px; }
-  .node.hit text:first-of-type { fill:var(--hit); font-weight:700; }
+  .node .branch { font-weight:700; font-size:11px; }
+  .node.noted .name { font-weight:700; }
+  .node.hit .name { fill:var(--hit); font-weight:700; }
+
+  #person { position:fixed; z-index:3; top:0; right:0; bottom:0; width:min(440px, 100%); overflow:auto; box-sizing:border-box;
+            padding:20px 20px 40px; background:var(--panel); backdrop-filter:blur(10px); border-left:3px solid var(--gold);
+            box-shadow:-8px 0 30px rgba(0,0,0,.18); }
+  #person[hidden] { display:none; }
+  #person h2 { margin:.2em 0 .1em; font-size:26px; }
+  #person .tag { display:inline-block; font:12px system-ui, sans-serif; padding:2px 8px; border-radius:99px; color:#fff; }
+  #person h3 { font:600 12px system-ui, sans-serif; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:1.4em 0 .4em; }
+  #person a { color:inherit; }
+  #person .path { font-size:13px; color:var(--muted); }
+  #person .note { font-size:15px; }
+  #person .src { font:12px system-ui, sans-serif; color:var(--muted); }
+  #close { float:right; }
 </style>
 </head>
 <body>
 <header>
-  <h1>AFRIKAN ROYAL DYNASTY FAMILY TREE</h1>
+  <h1>Afrikan Royal Dynasty Family Tree</h1>
   <label>Find <input id="q" type="search" placeholder="e.g. Njoya, Eweka" autocomplete="off"></label>
+  <button id="orient" aria-pressed="false">Vertical</button>
   <button id="expand">Expand all</button>
   <button id="fit">Fit</button>
   <div id="legend"></div>
-  <div id="info">Click a name to fold/unfold. Drag or scroll to move. Branch names are added labels (not in the source chart); please verify them.</div>
+  <div id="info">Click a name to open its page; click a dot to fold/unfold. <b>Bold</b> names carry a note from the source book. Branch labels are added (not in the source chart).</div>
 </header>
 <svg id="chart" role="img" aria-label="Interactive royal lineage tree"></svg>
+<article id="person" hidden aria-live="polite"></article>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
+const SOURCE = "Prince Dika Akwa nya Bonambela, <i>Les descendants des pharaons à travers l'Afrique</i> (Éditions Osiris-Africa)";
+const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+                set(k, v) { try { localStorage.setItem(k, v); } catch {} } };
+
 fetch("tree.json").then(r => r.json()).then(people => {
   const byId = new Map(people.map(p => [p.id, p]));
-  // Parentless spouses show as a label on their partner, not as roots.
-  const rows = people.filter(p => p.parent !== null || !p.spouses);
+  const rows = people.filter(p => p.parent !== null || !p.spouses);  // parentless spouses are labels, not roots
   const root = d3.stratify().id(p => p.id).parentId(p => p.parent)(rows);
-  root.sort((a, b) => a.data.x - b.data.x);  // keep the chart's left-to-right order
+  root.sort((a, b) => a.data.x - b.data.x);
+  const nodeById = new Map(root.descendants().map(d => [d.data.id, d]));
+  const childrenOf = new Map();
+  people.forEach(p => [p.parent, ...(p.co_parents || [])].forEach(q => {
+    if (q !== null) (childrenOf.get(q) || childrenOf.set(q, []).get(q)).push(p.id);
+  }));
 
   const palette = ["#b45309", "#15803d", "#1d4ed8", "#7e22ce", "#be123c", "#0e7490"];
   const branches = [...new Set(people.filter(p => p.branch).map(p => p.branch))];
   const colour = d3.scaleOrdinal(branches, palette);
   root.each(d => { d.branch = d.data.branch || (d.parent && d.parent.branch); });
-  d3.select("#legend").selectAll("span").data(branches).join("span")
-    .style("--c", colour).text(b => b);
+  d3.select("#legend").selectAll("span").data(branches).join("span").style("--c", colour).text(b => b);
 
   const svg = d3.select("#chart"), g = svg.append("g");
-  const zoom = d3.zoom().scaleExtent([0.05, 3]).on("zoom", e => g.attr("transform", e.transform));
+  const zoom = d3.zoom().scaleExtent([0.04, 3]).on("zoom", e => g.attr("transform", e.transform));
   svg.call(zoom);
-  const layout = d3.tree().nodeSize([24, 170]);
+  let vertical = store.get("tree-vertical") === "1";
   root.descendants().forEach(d => { d._children = d.children; });
+  const pos = d => vertical ? [d.x, d.y] : [d.y, d.x];
 
-  function spouseText(d) {
-    const s = (d.data.spouses || []).concat(d.data.co_parents || [])
-      .map(i => byId.get(i).name).filter((v, i, a) => a.indexOf(v) === i);
-    return s.length ? " ⚭ " + s.join(", ") : "";
-  }
+  const partners = p => [...new Set([...(p.spouses || []), ...(p.co_parents || [])])];
+  const spouseText = d => { const s = partners(d.data).map(i => byId.get(i).name); return s.length ? " ⚭ " + s.join(", ") : ""; };
 
   function render() {
-    layout(root);
-    const nodes = root.descendants(), links = root.links();
-    g.selectAll(".link").data(links, l => l.target.id).join("path").attr("class", "link")
-      .attr("d", d3.linkHorizontal().x(d => d.y).y(d => d.x));
-    const n = g.selectAll(".node").data(nodes, d => d.id).join(enter => {
-      const e = enter.append("g").attr("class", "node").on("click", (_, d) => {
-        d.children = d.children ? null : d._children; render();
-      });
-      e.append("circle").attr("r", 5);
-      e.append("text").attr("x", 9).attr("dy", "0.32em").text(d => d.data.name)
-        .append("tspan").attr("class", "spouse").text(spouseText);
-      e.filter(d => d.data.branch).append("text").attr("class", "branch").attr("x", 9).attr("dy", "-0.9em")
+    d3.tree().nodeSize(vertical ? [128, 78] : [24, 170])(root);
+    d3.select("#orient").text(vertical ? "Horizontal" : "Vertical").attr("aria-pressed", vertical);
+    const link = vertical ? d3.linkVertical() : d3.linkHorizontal();
+    g.selectAll(".link").data(root.links(), l => l.target.id).join("path").attr("class", "link")
+      .attr("d", l => link({ source: pos(l.source), target: pos(l.target) }));
+    const n = g.selectAll(".node").data(root.descendants(), d => d.id).join(enter => {
+      const e = enter.append("g").attr("class", "node").classed("noted", d => !!d.data.note);
+      e.append("circle").attr("r", 5).on("click", (_, d) => { d.children = d.children ? null : d._children; render(); });
+      const t = e.append("text").attr("class", "label");
+      t.append("tspan").attr("class", "name").text(d => d.data.name)
+        .on("click", (_, d) => { location.hash = "p=" + d.data.id; });
+      t.append("tspan").attr("class", "spouse").text(spouseText);
+      e.filter(d => d.data.branch).append("text").attr("class", "branch")
         .attr("fill", d => colour(d.data.branch)).text(d => d.data.branch + " (added)");
       e.append("title").text(d => d.ancestors().reverse().map(a => a.data.name).join(" → "));
       return e;
     });
-    n.attr("transform", d => `translate(${d.y},${d.x})`);
+    n.attr("transform", d => `translate(${pos(d)})`);
+    n.select(".label").attr("x", vertical ? 0 : 9).attr("y", vertical ? 17 : 0).attr("dy", vertical ? "0.3em" : "0.32em")
+      .attr("text-anchor", vertical ? "middle" : "start");
+    n.select(".branch").attr("x", vertical ? 0 : 9).attr("y", vertical ? -10 : 0).attr("dy", vertical ? 0 : "-0.9em")
+      .attr("text-anchor", vertical ? "middle" : "start");
     n.select("circle").attr("fill", d => d.branch ? colour(d.branch) : "var(--muted)")
       .attr("fill-opacity", d => d._children && !d.children ? 0.45 : 1);
   }
 
+  const top = () => document.querySelector("header").offsetHeight;
   function fit() {
-    const b = g.node().getBBox(), w = innerWidth, h = innerHeight - 90;
+    const b = g.node().getBBox(), w = innerWidth, h = innerHeight - top();
     const k = Math.min(w / (b.width + 80), h / (b.height + 80), 1);
     svg.transition().call(zoom.transform,
-      d3.zoomIdentity.translate(w / 2 - k * (b.x + b.width / 2), 90 + h / 2 - k * (b.y + b.height / 2)).scale(k));
+      d3.zoomIdentity.translate(w / 2 - k * (b.x + b.width / 2), top() + h / 2 - k * (b.y + b.height / 2)).scale(k));
+  }
+  function focus(d) {
+    d.ancestors().forEach(a => { a.children = a._children; });
+    render();
+    const [x, y] = pos(d), panel = document.getElementById("person").hidden ? 0 : Math.min(440, innerWidth);
+    svg.transition().call(zoom.transform, d3.zoomIdentity.translate((innerWidth - panel) / 2 - x, top() + (innerHeight - top()) / 2 - y));
   }
 
+  const a = (id, text) => `<a href="#p=${id}">${text ?? byId.get(id).name}</a>`;
+  const list = ids => ids.length ? ids.map(i => a(i)).join(", ") : "—";
+  function showPerson(id) {
+    const p = byId.get(id), d = nodeById.get(id), el = document.getElementById("person");
+    if (!p) return;
+    const lineage = d ? d.ancestors().reverse().map(x => a(x.data.id)).join(" → ") : "";
+    const branch = d && d.branch;
+    el.innerHTML = `
+      <button id="close" aria-label="Close">✕</button>
+      ${branch ? `<span class="tag" style="background:${colour(branch)}">${branch} (added label)</span>` : ""}
+      <h2>${p.name}</h2>
+      <p class="path">${lineage}</p>
+      <h3>From the source book</h3>
+      ${p.note ? `<p class="note">${p.note}</p><p class="src">${SOURCE}, p. ${p.pages.join(", ")}. Paraphrased.</p>`
+               : `<p class="src">No note written yet for this name.</p>`}
+      <h3>Family</h3>
+      <p><b>Parent${p.co_parents && p.co_parents.length ? "s" : ""}:</b> ${list([p.parent, ...(p.co_parents || [])].filter(x => x !== null))}<br>
+         <b>Spouse:</b> ${list(p.spouses || [])}<br>
+         <b>Children:</b> ${list(childrenOf.get(id) || [])}</p>
+      <h3>Where the name appears in the book</h3>
+      <p class="src">${p.mentions && p.mentions.length ? "pp. " + p.mentions.join(", ") +
+        " (automatic spelling match, so it may include namesakes)" : "Not found by spelling match (the book may spell it differently)."}</p>`;
+    el.hidden = false;
+    el.querySelector("#close").onclick = () => { history.pushState("", "", location.pathname); route(); };
+    d3.selectAll(".node").classed("hit", n => n.data.id === id);
+    if (d) focus(d);
+    el.focus?.();
+  }
+  function route() {
+    const m = location.hash.match(/p=(\d+)/);
+    if (m) showPerson(+m[1]);
+    else { document.getElementById("person").hidden = true; d3.selectAll(".node").classed("hit", false); }
+  }
+  addEventListener("hashchange", route);
+  addEventListener("keydown", e => { if (e.key === "Escape" && location.hash) { history.pushState("", "", location.pathname); route(); } });
+
+  d3.select("#orient").on("click", () => { vertical = !vertical; store.set("tree-vertical", vertical ? "1" : "0"); render(); fit(); });
   d3.select("#expand").on("click", () => { root.each(d => { d.children = d._children; }); render(); fit(); });
   d3.select("#fit").on("click", fit);
   d3.select("#q").on("input", function () {
     const q = this.value.trim().toLowerCase();
     const hits = q ? root.descendants().filter(d => d.data.name.toLowerCase().includes(q)) : [];
-    hits.forEach(d => d.ancestors().forEach(a => { a.children = a._children; }));  // unfold path to each hit
+    hits.forEach(d => d.ancestors().forEach(x => { x.children = x._children; }));
     render();
     g.selectAll(".node").classed("hit", d => hits.includes(d));
-    if (hits[0]) {
-      const d = hits[0], k = 1;
-      svg.transition().call(zoom.transform, d3.zoomIdentity.translate(innerWidth / 3 - d.y * k, innerHeight / 2 - d.x * k).scale(k));
-    }
+    if (hits[0]) focus(hits[0]);
   });
 
-  render(); fit();
+  render(); fit(); route();
 }).catch(err => {
   document.getElementById("info").textContent = "Could not load tree.json (" + err.message + "). Serve this folder over HTTP.";
 });
