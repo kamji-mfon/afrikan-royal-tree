@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Afrikan Royal Dynasty Tree</title>
+<style>
+  :root { --bg:#faf7f2; --ink:#2b2118; --muted:#8a7b6b; --line:#c9b8a3; --hit:#c2410c; --panel:#fffdf9; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#1a1612; --ink:#efe6da; --muted:#a3947f; --line:#5a4c3d; --hit:#fb923c; --panel:#241e18; }
+  }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--ink); font:14px/1.4 system-ui, sans-serif; }
+  header { position:fixed; inset:0 0 auto 0; z-index:1; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center;
+           padding:10px 16px; background:var(--panel); border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:16px; letter-spacing:.04em; }
+  input { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--ink); min-width:0; width:180px; }
+  button { font:inherit; padding:6px 10px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--ink); cursor:pointer; }
+  #legend { display:flex; flex-wrap:wrap; gap:6px 12px; font-size:12px; color:var(--muted); }
+  #legend span::before { content:""; display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:4px; background:var(--c); vertical-align:-1px; }
+  #info { font-size:12px; color:var(--muted); }
+  svg { display:block; width:100%; height:100%; }
+  .link { fill:none; stroke:var(--line); stroke-width:1.2; }
+  .node circle { stroke:var(--bg); stroke-width:1.5; cursor:pointer; }
+  .node text { fill:var(--ink); font-size:12px; paint-order:stroke; stroke:var(--bg); stroke-width:3px; cursor:pointer; }
+  .node .spouse { fill:var(--muted); font-style:italic; }
+  .node .branch { font-weight:600; font-size:11px; }
+  .node.hit text:first-of-type { fill:var(--hit); font-weight:700; }
+</style>
+</head>
+<body>
+<header>
+  <h1>AFRIKAN ROYAL DYNASTY FAMILY TREE</h1>
+  <label>Find <input id="q" type="search" placeholder="e.g. Njoya, Eweka" autocomplete="off"></label>
+  <button id="expand">Expand all</button>
+  <button id="fit">Fit</button>
+  <div id="legend"></div>
+  <div id="info">Click a name to fold/unfold. Drag or scroll to move. Branch names are added labels (not in the source chart); please verify them.</div>
+</header>
+<svg id="chart" role="img" aria-label="Interactive royal lineage tree"></svg>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+fetch("tree.json").then(r => r.json()).then(people => {
+  const byId = new Map(people.map(p => [p.id, p]));
+  // Parentless spouses show as a label on their partner, not as roots.
+  const rows = people.filter(p => p.parent !== null || !p.spouses);
+  const root = d3.stratify().id(p => p.id).parentId(p => p.parent)(rows);
+  root.sort((a, b) => a.data.x - b.data.x);  // keep the chart's left-to-right order
+
+  const palette = ["#b45309", "#15803d", "#1d4ed8", "#7e22ce", "#be123c", "#0e7490"];
+  const branches = [...new Set(people.filter(p => p.branch).map(p => p.branch))];
+  const colour = d3.scaleOrdinal(branches, palette);
+  root.each(d => { d.branch = d.data.branch || (d.parent && d.parent.branch); });
+  d3.select("#legend").selectAll("span").data(branches).join("span")
+    .style("--c", colour).text(b => b);
+
+  const svg = d3.select("#chart"), g = svg.append("g");
+  const zoom = d3.zoom().scaleExtent([0.05, 3]).on("zoom", e => g.attr("transform", e.transform));
+  svg.call(zoom);
+  const layout = d3.tree().nodeSize([24, 170]);
+  root.descendants().forEach(d => { d._children = d.children; });
+
+  function spouseText(d) {
+    const s = (d.data.spouses || []).concat(d.data.co_parents || [])
+      .map(i => byId.get(i).name).filter((v, i, a) => a.indexOf(v) === i);
+    return s.length ? " ⚭ " + s.join(", ") : "";
+  }
+
+  function render() {
+    layout(root);
+    const nodes = root.descendants(), links = root.links();
+    g.selectAll(".link").data(links, l => l.target.id).join("path").attr("class", "link")
+      .attr("d", d3.linkHorizontal().x(d => d.y).y(d => d.x));
+    const n = g.selectAll(".node").data(nodes, d => d.id).join(enter => {
+      const e = enter.append("g").attr("class", "node").on("click", (_, d) => {
+        d.children = d.children ? null : d._children; render();
+      });
+      e.append("circle").attr("r", 5);
+      e.append("text").attr("x", 9).attr("dy", "0.32em").text(d => d.data.name)
+        .append("tspan").attr("class", "spouse").text(spouseText);
+      e.filter(d => d.data.branch).append("text").attr("class", "branch").attr("x", 9).attr("dy", "-0.9em")
+        .attr("fill", d => colour(d.data.branch)).text(d => d.data.branch + " (added)");
+      e.append("title").text(d => d.ancestors().reverse().map(a => a.data.name).join(" → "));
+      return e;
+    });
+    n.attr("transform", d => `translate(${d.y},${d.x})`);
+    n.select("circle").attr("fill", d => d.branch ? colour(d.branch) : "var(--muted)")
+      .attr("fill-opacity", d => d._children && !d.children ? 0.45 : 1);
+  }
+
+  function fit() {
+    const b = g.node().getBBox(), w = innerWidth, h = innerHeight - 90;
+    const k = Math.min(w / (b.width + 80), h / (b.height + 80), 1);
+    svg.transition().call(zoom.transform,
+      d3.zoomIdentity.translate(w / 2 - k * (b.x + b.width / 2), 90 + h / 2 - k * (b.y + b.height / 2)).scale(k));
+  }
+
+  d3.select("#expand").on("click", () => { root.each(d => { d.children = d._children; }); render(); fit(); });
+  d3.select("#fit").on("click", fit);
+  d3.select("#q").on("input", function () {
+    const q = this.value.trim().toLowerCase();
+    const hits = q ? root.descendants().filter(d => d.data.name.toLowerCase().includes(q)) : [];
+    hits.forEach(d => d.ancestors().forEach(a => { a.children = a._children; }));  // unfold path to each hit
+    render();
+    g.selectAll(".node").classed("hit", d => hits.includes(d));
+    if (hits[0]) {
+      const d = hits[0], k = 1;
+      svg.transition().call(zoom.transform, d3.zoomIdentity.translate(innerWidth / 3 - d.y * k, innerHeight / 2 - d.x * k).scale(k));
+    }
+  });
+
+  render(); fit();
+}).catch(err => {
+  document.getElementById("info").textContent = "Could not load tree.json (" + err.message + "). Serve this folder over HTTP.";
+});
+</script>
+</body>
+</html>
