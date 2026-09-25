@@ -55,6 +55,9 @@
   #person .tag { display:inline-block; font:12px system-ui, sans-serif; padding:2px 8px; border-radius:99px; color:#fff; }
   #person h3 { font:600 12px system-ui, sans-serif; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:1.4em 0 .4em; }
   #person a { color:inherit; }
+  #graphics { position:relative; } #graphics summary { cursor:pointer; }
+  #graphics ul { position:absolute; top:100%; right:0; max-width:calc(100vw - 24px); margin:6px 0 0; padding:8px 14px; list-style:none; background:var(--panel); border:1px solid var(--line); border-radius:8px; white-space:nowrap; }
+  #graphics a { color:inherit; line-height:1.9; }
   #person .path { font-size:13px; color:var(--muted); }
   #person .note { font-size:15px; }
   #person .src { font:12px system-ui, sans-serif; color:var(--muted); }
@@ -68,6 +71,7 @@
   <button id="orient" aria-pressed="false">Vertical</button>
   <button id="expand">Expand all</button>
   <button id="fit">Fit</button>
+  <details id="graphics"><summary>Graphics</summary><ul><li><a href="graphics/royal_tree_poster.svg" target="_blank" rel="noopener">Full tree poster</a></li><li><a href="graphics/overview.svg" target="_blank" rel="noopener">Whole tree by branch</a></li><li><a href="graphics/trunk.svg" target="_blank" rel="noopener">Ikale to Mandenge</a></li><li><a href="graphics/split.svg" target="_blank" rel="noopener">Where the houses part</a></li><li><a href="graphics/mandara.svg" target="_blank" rel="noopener">Mandara sultans</a></li><li><a href="graphics/bamum.svg" target="_blank" rel="noopener">Bamum kings</a></li><li><a href="graphics/duala.svg" target="_blank" rel="noopener">Duala (Sawa)</a></li><li><a href="graphics/benin.svg" target="_blank" rel="noopener">Benin</a></li><li><a href="graphics/west.svg" target="_blank" rel="noopener">Mali and Jolof</a></li><li><a href="graphics/yen.svg" target="_blank" rel="noopener">Yen and Mforifum</a></li></ul></details>
   <div id="legend"></div>
   <div id="info">Click a name to open its page; click a dot to fold/unfold. <b>Bold</b> names carry a note from the source book. Branch labels are added (not in the source chart).</div>
 </header>
