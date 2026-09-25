@@ -1,28 +1,409 @@
 {
   "_source": "Prince Dika Akwa nya Bonambela, Les descendants des pharaons à travers l'Afrique (Éditions Osiris-Africa). Page numbers are the book's printed pages. Notes are paraphrases, not quotations.",
-  "Ikale": {"note": "First ancestor of the Ngala-Dwala line. Counting three generations per century, Dika Akwa puts him at the end of Egypt's 17th dynasty (c. 1625–1600 BCE) and asks whether he was one of the Theban nomarchs who took pharaonic titles during the struggle against the Hyksos.", "pages": [320]},
-  "Modi": {"note": "The book names him Modi Sopo, the celebrated generalissimo of Wangara, with one known son, Mbe, at the dawn of the 12th century. The chart draws Sopo and Modi as two generations.", "pages": [428]},
-  "Mbe": {"note": "Son of Modi Sopo, early 12th century. Father of three sons who founded three branches: Kongo, ancestor of the Ngala of south-central Africa; Muyenya (Muwenya), probable ancestor of the Igala of Nigeria; and Alé, ancestor of the Ngala fraction of the Wandala.", "pages": [428]},
-  "Kongo Matadi": {"note": "Son of Mbe; ancestor of the Ngala of southern-central Africa.", "pages": [428]},
-  "Muyenya": {"note": "Son of Mbe (the book spells him Muwenya); probable ancestor of the Igala of Nigeria.", "pages": [428]},
-  "Alé": {"note": "Son of Mbe and ancestor of the Ngala fraction of the Wandala. A Gara merchant who went north and operated in Bornu; the heads of his family were successively called “the Egyptian merchant”. His line: Sosso, Djilé, Soka Wandala, then Dawa.", "pages": [428, 431]},
-  "Sanda": {"note": "Daughter of Dawa (also called Sukda) and sister of Adjara. With Kaya (Gaya), of Toumagari blood, she had Djilé II, the first Apfalaska (prince) of Mandara, at the end of the 13th or start of the 14th century. She is the 20th direct ancestor of Sultan Hamidou Oumar of Mandara.", "pages": [428, 431]},
-  "Apfalaska": {"note": "“Apfalaska” is a title meaning prince, borne by Djilé II, the son of Sanda and Kaya. The chart draws it as its own name.", "pages": [428, 431]},
-  "Djilé@Apfalaska": {"note": "Djilé II, the first Apfalaska of Mandara. Three branches descend from him and supplied the dynasties of Mora, Mounio, Karowa and Dikwa.", "pages": [428, 431]},
-  "Sangaré": {"note": "Remembered as the 15th king of Mandara, living in the 18th century. He brought the Maya (Baya) of the north into the Wandala.", "pages": [428]},
-  "Hamidu Umar": {"note": "Sultan Hamidou Oumar of Mandara, reigning since 1942 when the book was written. Sanda is his 20th direct ancestor.", "pages": [431]},
-  "Adjara": {"note": "Son of Dawa and brother of Sanda. He is the 20th direct ancestor of the Bamum royal line (21st of the Bakpak Binkira lines).", "pages": [428, 431]},
-  "Essedi": {"note": "Issedi, son of Ayoka and grandson of Adjara: “the Egyptian” of Bamum tradition, eighth direct descendant of Alé, 14th century (traditions give c. 1394). He married Nebijou and left Bornu to settle among the Mboum.", "pages": [431, 432, 434]},
-  "Nebijou": {"note": "Wife of Essedi. Their three daughters were Nsien, Metapen and Mbupwet.", "pages": [431, 434]},
-  "Nsien": {"note": "Daughter of Essedi and Nebijou. Bamum history makes her the mother of the Mboum royal branch of Ngan-Ha; one version makes her, with Gang-Afou, the mother of Nji Mboum II, builder of the Rifoum empire.", "pages": [434]},
-  "Metapen": {"note": "Second daughter of Essedi and Nebijou; mother of the Mbang royal branch.", "pages": [434]},
-  "Mbupwet": {"note": "Third daughter of Essedi and Nebijou (Mbouepouet). She had three sons: Mbouon, Kayi and Nyimbou.", "pages": [434]},
-  "Nyimbu": {"note": "Son of Mbupwet. The only one of the three brothers to marry back into the “Egyptian merchants”. His elder daughter was Yen, the younger Hosun (Hossoum).", "pages": [434]},
-  "Yen": {"note": "Elder DAUGHTER of Nyimbu. She married Mforifum (Mfenrifou); since both descended from Ayoka, the book calls it an endogamous union. Their children: a daughter, Ndjiason, and four sons: Nditam, Sow, Ncharé and Mbam.", "pages": [434]},
-  "Mforifum": {"note": "Mfenrifou, son of Nguti and his wife Ntuno. Through Kiwa and Djilé III he descends from Ayoka, like his wife Yen.", "pages": [434]},
-  "Nditam": {"note": "Son of Yen and Mforifum; ancestor of the Ditam, living mainly at Ngambe-Ditam among the Tikar.", "pages": [434]},
-  "Sow": {"note": "Nsow, son of Yen and Mforifum; eponymous ancestor of the Bansow.", "pages": [434]},
-  "Ncharé": {"note": "Nshare, son of Yen and Mforifum; founder of the Bamum dynasty and kingdom at the dawn of the 16th century.", "pages": [434]},
-  "Mbam": {"note": "Son of Yen and Mforifum; father of Namande.", "pages": [434]},
-  "Ndjiason": {"note": "Njiasson, the only daughter of Yen and Mforifum.", "pages": [434]}
+  "Ikale": {
+    "note": "First ancestor of the Ngala-Dwala line. Counting three generations per century, Dika Akwa puts him at the end of Egypt's 17th dynasty (c. 1625–1600 BCE) and asks whether he was one of the Theban nomarchs who took pharaonic titles during the struggle against the Hyksos.",
+    "pages": [
+      320
+    ]
+  },
+  "Modi": {
+    "note": "The book names him Modi Sopo, the celebrated generalissimo of Wangara, with one known son, Mbe, at the dawn of the 12th century. The chart draws Sopo and Modi as two generations.",
+    "pages": [
+      428
+    ]
+  },
+  "Mbe": {
+    "note": "Son of Modi Sopo, early 12th century. Father of three sons who founded three branches: Kongo, ancestor of the Ngala of south-central Africa; Muyenya (Muwenya), probable ancestor of the Igala of Nigeria; and Alé, ancestor of the Ngala fraction of the Wandala.",
+    "pages": [
+      428
+    ]
+  },
+  "Kongo Matadi": {
+    "note": "Son of Mbe; ancestor of the Ngala of southern-central Africa.",
+    "pages": [
+      428
+    ]
+  },
+  "Muyenya": {
+    "note": "Son of Mbe (the book spells him Muwenya); probable ancestor of the Igala of Nigeria.",
+    "pages": [
+      428
+    ]
+  },
+  "Alé": {
+    "note": "Son of Mbe and ancestor of the Ngala fraction of the Wandala. A Gara merchant who went north and operated in Bornu; the heads of his family were successively called “the Egyptian merchant”. His line: Sosso, Djilé, Soka Wandala, then Dawa.",
+    "pages": [
+      428,
+      431
+    ]
+  },
+  "Sanda": {
+    "note": "Daughter of Dawa (also called Sukda) and sister of Adjara. With Kaya (Gaya), of Toumagari blood, she had Djilé II, the first Apfalaska (prince) of Mandara, at the end of the 13th or start of the 14th century. She is the 20th direct ancestor of Sultan Hamidou Oumar of Mandara.",
+    "pages": [
+      428,
+      431
+    ]
+  },
+  "Apfalaska": {
+    "note": "“Apfalaska” is a title meaning prince, borne by Djilé II, the son of Sanda and Kaya. The chart draws it as its own name.",
+    "pages": [
+      428,
+      431
+    ]
+  },
+  "Djilé@Apfalaska": {
+    "note": "Djilé II, the first Apfalaska of Mandara. Three branches descend from him and supplied the dynasties of Mora, Mounio, Karowa and Dikwa.",
+    "pages": [
+      428,
+      431
+    ]
+  },
+  "Sangaré": {
+    "note": "Remembered as the 15th king of Mandara, living in the 18th century. He brought the Maya (Baya) of the north into the Wandala.",
+    "pages": [
+      428
+    ]
+  },
+  "Hamidu Umar": {
+    "note": "Sultan Hamidou Oumar of Mandara, reigning since 1942 when the book was written. Sanda is his 20th direct ancestor.",
+    "pages": [
+      431
+    ]
+  },
+  "Adjara": {
+    "note": "Son of Dawa and brother of Sanda. He is the 20th direct ancestor of the Bamum royal line (21st of the Bakpak Binkira lines).",
+    "pages": [
+      428,
+      431
+    ]
+  },
+  "Essedi": {
+    "note": "Issedi, son of Ayoka and grandson of Adjara: “the Egyptian” of Bamum tradition, eighth direct descendant of Alé, 14th century (traditions give c. 1394). He married Nebijou and left Bornu to settle among the Mboum.",
+    "pages": [
+      431,
+      432,
+      434
+    ]
+  },
+  "Nebijou": {
+    "note": "Wife of Essedi. Their three daughters were Nsien, Metapen and Mbupwet.",
+    "pages": [
+      431,
+      434
+    ]
+  },
+  "Nsien": {
+    "note": "Daughter of Essedi and Nebijou. Bamum history makes her the mother of the Mboum royal branch of Ngan-Ha; one version makes her, with Gang-Afou, the mother of Nji Mboum II, builder of the Rifoum empire.",
+    "pages": [
+      434
+    ]
+  },
+  "Metapen": {
+    "note": "Second daughter of Essedi and Nebijou; mother of the Mbang royal branch.",
+    "pages": [
+      434
+    ]
+  },
+  "Mbupwet": {
+    "note": "Third daughter of Essedi and Nebijou (Mbouepouet). She had three sons: Mbouon, Kayi and Nyimbou.",
+    "pages": [
+      434
+    ]
+  },
+  "Nyimbu": {
+    "note": "Son of Mbupwet. The only one of the three brothers to marry back into the “Egyptian merchants”. His elder daughter was Yen, the younger Hosun (Hossoum).",
+    "pages": [
+      434
+    ]
+  },
+  "Yen": {
+    "note": "Elder DAUGHTER of Nyimbu. She married Mforifum (Mfenrifou); since both descended from Ayoka, the book calls it an endogamous union. Their children: a daughter, Ndjiason, and four sons: Nditam, Sow, Ncharé and Mbam.",
+    "pages": [
+      434
+    ]
+  },
+  "Mforifum": {
+    "note": "Mfenrifou, son of Nguti and his wife Ntuno. Through Kiwa and Djilé III he descends from Ayoka, like his wife Yen.",
+    "pages": [
+      434
+    ]
+  },
+  "Nditam": {
+    "note": "Son of Yen and Mforifum; ancestor of the Ditam, living mainly at Ngambe-Ditam among the Tikar.",
+    "pages": [
+      434
+    ]
+  },
+  "Sow": {
+    "note": "Nsow, son of Yen and Mforifum; eponymous ancestor of the Bansow.",
+    "pages": [
+      434
+    ]
+  },
+  "Ncharé": {
+    "note": "Nshare, son of Yen and Mforifum; founder of the Bamum dynasty and kingdom at the dawn of the 16th century.",
+    "pages": [
+      434
+    ]
+  },
+  "Mbam": {
+    "note": "Son of Yen and Mforifum; father of Namande.",
+    "pages": [
+      434
+    ]
+  },
+  "Ndjiason": {
+    "note": "Njiasson, the only daughter of Yen and Mforifum.",
+    "pages": [
+      434
+    ]
+  },
+  "Mosi": {
+    "note": "The 108th ancestor in the Ngala-Dwala line; the book pairs him with Ahmose I, who expelled the Hyksos from Egypt around 1590 BCE, and elsewhere calls Mosi a name meaning 'Monday, day of the moon' in Kingala, tied to a moon cult.",
+    "pages": [
+      320,
+      329
+    ]
+  },
+  "Mulobi": {
+    "note": "107th/103rd ancestor of the Ngala-Dwala line (also spelled Malobi, Mulobe; European navigators wrote Monoba/Moniba). The book tentatively equates him with Amenhotep I (Jehoutimes), successor of Ahmose.",
+    "pages": [
+      320,
+      321
+    ]
+  },
+  "Dimodi I": {
+    "note": "Part of a run of ancestors named Dimodi that the book aligns with the Thutmose kings of Egypt's 18th dynasty; this one corresponds to Thutmose I (c. 1530-1520 BCE) in the book's comparative table.",
+    "pages": [
+      320
+    ]
+  },
+  "Dimodi II": {
+    "note": "One of the Ngala-Dwala Dimodi generations the book equates with the Thutmose line, placed around the era of Thutmose II and Queen Hatshepsut.",
+    "pages": [
+      320
+    ]
+  },
+  "Dimodi III": {
+    "note": "One of the Ngala-Dwala Dimodi generations in the book's comparative table with the Thutmose kings; 'Dimodi' is glossed as meaning 'hearth/house of the moons' (January).",
+    "pages": [
+      320,
+      321
+    ]
+  },
+  "Dimodi IV": {
+    "note": "The book explicitly identifies him with Thutmose IV, calling him the 102nd ancestor of the Ngala-Dwala line, the point up to which it says the Ngala and Egyptian pharaonic name-lists correspond step by step.",
+    "pages": [
+      320,
+      321,
+      327
+    ]
+  },
+  "Mpantone": {
+    "note": "The 101st ancestor of the Ngala-Dwala line, where the book's name-correspondence with the pharaohs breaks off; it speculates he may be a brother of Amenhotep III, on the theory that his grandson Mudeta I was a grandson of Thutmose IV.",
+    "pages": [
+      320,
+      321
+    ]
+  },
+  "Mudeta I": {
+    "note": "Called Moundeta in the book, the 100th ancestor of the Ngala-Dwala line; the book tentatively equates him with Ramesses I, said to have lived as a cousin of Tutankhamun under the regency of Ayi and General Horemheb.",
+    "pages": [
+      321,
+      322
+    ]
+  },
+  "Mune Dota": {
+    "note": "Called Moundeta II in the book, the 98th Ngala-Dwala ancestor, paired speculatively with Ramesses II; father of Aku Malem by a foreign mother.",
+    "pages": [
+      322,
+      324
+    ]
+  },
+  "Keti": {
+    "note": "Called Koti, the 99th ancestor of the Ngala-Dwala line, which the book pairs with Seti I; a separate name-correspondence table also links a Keti (98th link) to the Egyptian Kheti of the 11th dynasty. The book cautions there is no proof the pairing is more than coincidence.",
+    "pages": [
+      322,
+      337
+    ]
+  },
+  "Aku Malem": {
+    "note": "The 97th Ngala-Dwala ancestor, tentatively paired with the pharaoh Merneptah. Per the book's oral tradition, born of a foreign mother, he withdrew from court, became a prophet/priest, and later led a migration south after unrest; the book speculates he may correspond to Ramesses II's eldest son Khaemwaset.",
+    "pages": [
+      322,
+      324,
+      325
+    ]
+  },
+  "Etic": {
+    "note": "Called Etio in the book, the 96th ancestor of the Ngala-Dwala line, following Aku Malem in the sequence the book compares to the late-19th-dynasty pharaohs.",
+    "pages": [
+      322,
+      323
+    ]
+  },
+  "Besi": {
+    "note": "Called Abessi/Bessi, the 95th ancestor of the Ngala-Dwala line, whose era the book's calculations place around the 12th century BCE, paired with the reign of Seti II near the end of the 19th dynasty.",
+    "pages": [
+      323
+    ]
+  },
+  "Male I": {
+    "note": "The 94th ancestor of the Ngala-Dwala line, whose name the book derives from Mare/Kare (vocalized Male in Bantu languages); it lists several peoples the book claims descend from a 'Male' figure, including the Galla, Fulbe, Somali, and Sinegala lines.",
+    "pages": [
+      318,
+      319,
+      323
+    ]
+  },
+  "Makale I": {
+    "note": "Son of Male I in the Ngala-Dwala genealogy; the book compares the name Makale to the pharaoh title/name Maatkare (given as 'Bmenth-Kare', 1341-1340 BCE).",
+    "pages": [
+      325
+    ]
+  },
+  "Kupe": {
+    "note": "Descendant of Makale I in the Ngala-Dwala line; the book says the name is very close to Khufu (Cheops), and a separate table pairs Kupe/Koue/Kofi with Khufu.",
+    "pages": [
+      325,
+      335
+    ]
+  },
+  "Tineki": {
+    "note": "Called Setineki in the book, descendant of Kupe in the Ngala-Dwala line; compared to the pharaoh Seth-Nakht.",
+    "pages": [
+      325
+    ]
+  },
+  "Titi": {
+    "note": "The 90th ancestor of the Ngala-Dwala line, placed by the book around the 10th century BCE among the nobility; a separate name table also pairs Ngala Titi with Egyptian Titi.",
+    "pages": [
+      325,
+      337
+    ]
+  },
+  "Fapi": {
+    "note": "Called Papi in the book, the 89th ancestor of the Ngala-Dwala line (also given as the 89th link in a separate name-correspondence table pairing Ngala Papi with Egyptian Pepi).",
+    "pages": [
+      325,
+      335
+    ]
+  },
+  "Ayi": {
+    "note": "The 88th ancestor of the Ngala-Dwala line, placed by the book around the 10th century BCE; the book notes the name Ayi was fully preserved among the Beti of Cameroon.",
+    "pages": [
+      321,
+      322,
+      325
+    ]
+  },
+  "Sewule": {
+    "note": "Given as Sowele/Sewoule, the 46th link in the Ngala-Dwala genealogy according to the book's name-correspondence table, paired with the Egyptian name Saouré.",
+    "pages": [
+      335
+    ]
+  },
+  "Tyi": {
+    "note": "Given as Tii, the 78th link in the Ngala-Dwala genealogy per the book's name-correspondence table, paired with the Egyptian name Tyi.",
+    "pages": [
+      337
+    ]
+  },
+  "Ka": {
+    "note": "The 53rd link in the Ngala-Dwala genealogy per the book's name-correspondence table, paired with the Egyptian name Kha.",
+    "pages": [
+      337
+    ]
+  },
+  "Mukete": {
+    "note": "Listed in the book's Ngala-Egyptian name-correspondence table, pairing the Ngala-Dwala name Mukete with the Egyptian Mesketet; the book does not give an exact generation number for this pairing.",
+    "pages": [
+      337
+    ]
+  },
+  "Sankare": {
+    "note": "The 44th direct ancestor of the Ego in the Ngala-Dwala genealogy; the book also says Sankare is the name of the greatest Wandala king (17th century, Gara origin, North Cameroon) and links it to the pharaoh Senkare/Sesostris I, noting Sangare/Sankara is also common among Mali's Fulbe.",
+    "pages": [
+      317
+    ]
+  },
+  "Nsekele": {
+    "note": "The book derives this name from Egyptian Sequenre, giving it as the 64th ancestor in the Ngala-Dwala genealogy (spelled Nsekele/Nsekde).",
+    "pages": [
+      317
+    ]
+  },
+  "Soso@Alé": {
+    "note": "Son of Alé in the book's Wandala genealogy; father of Djilé.",
+    "pages": [
+      428
+    ]
+  },
+  "Djilé@Soso": {
+    "note": "Son of Soso (Sosso); father of Soka. Part of the Wandala royal line descending from Alé.",
+    "pages": [
+      428
+    ]
+  },
+  "Soka": {
+    "note": "The book's own sentence names Djilé's son as a single figure, 'Soka Wandala', father of Dawa - it does not clearly separate 'Soka' and 'Wandala' into two generations the way this tree does; treat the generation count here with caution.",
+    "pages": [
+      428
+    ]
+  },
+  "Wandala": {
+    "note": "Per the book's phrasing, 'Soka Wandala' appears to be one figure (son of Djilé, father of Dawa) rather than two distinct generations; this tree's split into separate Soka and Wandala entries is not clearly supported by the book's sentence structure.",
+    "pages": [
+      428
+    ]
+  },
+  "Ayoka": {
+    "note": "Son of Adjara per the book; father of Issedi (called 'the Egyptian' in Bamum tradition), and a contemporary of Djilé II, the first Apfalaska of Mandara.",
+    "pages": [
+      431
+    ]
+  },
+  "Djilé@Ayoka": {
+    "note": "Called Djilé III in the book's account of Mforifum's ancestry, son of Ayoka; father of Kiwa.",
+    "pages": [
+      434
+    ]
+  },
+  "Kiwa": {
+    "note": "Descendant of Ayoka via Djilé III in the book's account of Mforifum's ancestry; father of Nguti.",
+    "pages": [
+      434
+    ]
+  },
+  "Nguti": {
+    "note": "Son of Kiwa; married Ntuno, and their son was Mforifum, who through this line descended from Ayoka.",
+    "pages": [
+      434
+    ]
+  },
+  "Ntuno": {
+    "note": "Wife of Nguti (not his daughter, despite this tree's parent link to Kiwa); mother of Mforifum.",
+    "pages": [
+      434
+    ]
+  },
+  "Kayi": {
+    "note": "Youngest ('le dernier') of Mbupwet's three sons in the book's Bamum origin account (Mbouon the eldest, Nyimbou the second, Kai the youngest).",
+    "pages": [
+      430
+    ]
+  },
+  "Mbon Papi": {
+    "note": "Likely the book's 'Mbouon', eldest of Mbupwet's three sons; the book says he later led the family from their first village to found the settlement of Papi'rien after about 60 years.",
+    "pages": [
+      430
+    ]
+  },
+  "Igala": {
+    "note": "In the book's genealogical chart, Igala appears as a generation between Muwenya and Oraniyan (the traditional founder of the Benin dynasty), consistent with the text's claim that Muwenya is the probable ancestor of Nigeria's Igala people. The chart is faint/OCR-garbled, so treat the exact placement cautiously.",
+    "pages": [
+      428,
+      433
+    ]
+  }
 }

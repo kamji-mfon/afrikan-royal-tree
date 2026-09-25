@@ -29,6 +29,10 @@ EXTRA_EDGES = [
     ("Essedi", "Nsien"), ("Nebijou", "Nsien"),
     ("Essedi", "Mbupwet"), ("Nebijou", "Mbupwet"),
     ("Mbupwet", "Nyimbu"), ("Mbupwet", "Mbon Papi"),
+    # The chart hangs Yen's children under her alone; the book (printed p. 434)
+    # makes them children of Yen AND Mforifum, and Mforifum carries the lineage.
+    ("Mforifum", "Ndjiason"), ("Mforifum", "Nditam"), ("Mforifum", "Sow"),
+    ("Mforifum", "Ncharé"), ("Mforifum", "Mbam"),
 ]
 # Horizontal marriage lines (a bar between two names on the same row).
 SPOUSES = [("Essedi", "Nebijou"), ("Mbupwet", "Mbum Ngan Ha"),
